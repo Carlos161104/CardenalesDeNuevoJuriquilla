@@ -29,7 +29,7 @@ const Paciente = ({
       }}
     >
       <View style={styles.contenedor} >
-        <Text style={styles.label}>Informacion del arribo: </Text>
+        <Text style={styles.label}>Informacion del arrivo: </Text>
         <Text style={styles.textAlt}>ID: {paciente}</Text>
 
         <View style={styles.contenedorBTN}>

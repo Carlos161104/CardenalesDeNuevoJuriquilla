@@ -10,7 +10,7 @@ const InfoPacientes = ({ paciente, setModalPaciente, setPaciente }) => {
           style={styles.imagen}
         />
         <Text style={styles.titulo}>Informacion {''} 
-          <Text style={styles.negritas}>del arribo</Text></Text>
+          <Text style={styles.negritas}>del arrivo</Text></Text>
         
         <Pressable
             onPress={() => {
@@ -26,7 +26,7 @@ const InfoPacientes = ({ paciente, setModalPaciente, setPaciente }) => {
           style={styles.contenido}
         >
           <View style={styles.campo}>
-            <Text style={styles.label}>Id del arribo: </Text>
+            <Text style={styles.label}>Id del arrivo: </Text>
             <Text style={styles.tituloCont}>{paciente.paciente}</Text>
           </View>
 

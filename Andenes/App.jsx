@@ -61,7 +61,7 @@ const App = () => {
       <Pressable
         onPressIn={() => setModalVisible(!modalVisible)}
         style={styles.btnNuevacita}>
-        <Text style={styles.btnTextoNuevacita}>Nuevo arribo</Text>
+        <Text style={styles.btnTextoNuevacita}>Nuevo arrivo</Text>
       </Pressable>
 
       {pacientes.length === 0 ? 

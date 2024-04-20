@@ -77,7 +77,7 @@ const Formulario = ({
               </Pressable>
       
               <View style={styles.campo}>
-                <Text style={styles.preguntas}>Id del arribo: </Text>
+                <Text style={styles.preguntas}>Id del arrivo: </Text>
                 <TextInput
                   style={styles.input}
                   placeholder='Ej. 5467'
