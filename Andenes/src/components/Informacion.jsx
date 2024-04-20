@@ -5,15 +5,24 @@ import {
     Text,
     TextInput,
     Pressable,
-    Modal
+    TouchableOpacity, 
+    Image
   } from 'react-native';
 
 const Informacion = ({setIdentificado}) => {
+  const [password, setPassword] = useState('');
+  const [isPasswordVisible, setIsPasswordVisible] = useState(false);
 
-  console.log("Desde login")
+  const handlePressImage = () => {
+    setIsPasswordVisible(true);
+    setTimeout(() => {
+      setIsPasswordVisible(false);
+    }, 2000); // Cambia la visibilidad después de 2 segundos
+  };
+  
   return (
     <View style={styles.Padre}>
-      <Text style={styles.titulo}>Inicio de secion</Text>
+      <Text style={styles.titulo}>Inicio de sesion</Text>
 
       <View style={styles.campo}>
           <Text style={styles.preguntas}>Correo: </Text>
@@ -24,15 +33,26 @@ const Informacion = ({setIdentificado}) => {
           />
       </View>
       <View style={styles.campo}>
-          <Text style={styles.preguntas}>Contraseña: </Text>
+        <Text style={styles.preguntas}>Contraseña: </Text>
+        <View style={styles.inputcontraseña}>
           <TextInput
-            style={styles.input}
-            placeholder='Ejemplo@gmail.com'
+            style={styles.contraseña}
+            placeholder='Introduce tu contraseña'
             placeholderTextColor={'#666'}
+            secureTextEntry={!isPasswordVisible} // Oculta la contraseña a menos que isPasswordVisible sea true
+            value={password}
+            onChangeText={setPassword}
           />
+          <Pressable onPress={handlePressImage} style={styles.presscontra}>
+            <Image
+              style={styles.imagen}
+              source={require('../img/Ojo.png')}
+            />
+          </Pressable>
+        </View>
       </View>
       <Pressable
-      onPress={setIdentificado(false)}
+      onPress={() => setIdentificado(false)}
       style={styles.btnEnviar}>
         <Text style={styles.btnEnviarText}>Ingresar</Text>
       </Pressable>
@@ -52,7 +72,7 @@ const styles = StyleSheet.create({
     color: '#FFFFFF', 
     fontWeight: '300'
   },
-  campo: {
+   campo: {
     marginTop: 10,
     marginHorizontal: 30,
     paddingBottom: 10
@@ -69,6 +89,22 @@ const styles = StyleSheet.create({
     padding: 10,
     borderRadius: 10,
     color:'#171717'
+  },
+  contraseña: {
+    backgroundColor: '#FFF',
+    padding: 10,
+    borderRadius: 10,
+    color:'#171717',
+    flex: 1
+  },
+  inputcontraseña: {
+    backgroundColor: '#FFF',
+    padding: 10,
+    borderRadius: 10,
+    color:'#171717',
+    flexDirection: 'row',
+    justifyContent: 'space-between'
+
   },
   btnEnviar: {
     marginTop: 50,
@@ -91,6 +127,10 @@ const styles = StyleSheet.create({
   brnRegistroTxt:{
     color: '#4C7E93',
     textAlign: 'center'
+  },
+  imagen: {
+    height: 45,
+    width: 45
   }
 })
 
